@@ -27,15 +27,18 @@ class Main
 		count = count + 1
 
 		new_question=Questions.new()
-		puts "-----NEW TURN-----"
+		puts 
+		if count > 2 
+			puts "-----NEW TURN-----"
+		end
 		puts "#{current_player.name}: #{new_question.question}"
 		print ">"
 		answer_input= gets.chomp
 		if answer_input.to_i == new_question.answer
-			puts "Yes!, you are correct"
+			puts "#{current_player.name}: Yes!, you are correct"
 			puts "#{player_1.name}: #{player_1.lives}/3 vs #{player_2.name}: #{player_2.lives}/3"
 		else
-			puts "Seriously? No."
+			puts "#{current_player.name}: Seriously? No."
 
 			answering_player.lives = answering_player.lives - 1
 			puts "#{player_1.name}: #{player_1.lives}/3 vs #{player_2.name}: #{player_2.lives}/3"
